@@ -45,6 +45,11 @@ COE_Totem["TimerHooks"] = {};
 	PURPOSE: Scans the totems and totem sets 
 -------------------------------------------------------------------]]
 function COE_Totem:Rescan()
+
+	COETotemTT = CreateFrame("GameTooltip", "COETotemTT", nil, "GameTooltipTemplate")
+	COETotemTT:SetOwner(WorldFrame, "ANCHOR_NONE")
+
+	
 	COE:ScanTotems();
 	COE:InitTotemSets();
 	
