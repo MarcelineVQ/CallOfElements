@@ -255,6 +255,7 @@ function COE_Totem:ScanTargetForDebuff( target )
 	-- ------------------------------------------
 	COETotemTTTextLeft1:SetText( "" );
 	COETotemTTTextRight1:SetText( "" );
+	COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 	COETotemTT:SetUnitDebuff( target, slot );
 	
 	local debufftype = COETotemTTTextRight1:GetText();
@@ -290,6 +291,7 @@ function COE_Totem:ScanTargetForDebuff( target )
 		slot = slot + 1;
 		COETotemTTTextLeft1:SetText( "" );
 		COETotemTTTextRight1:SetText( "" );
+		COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 		COETotemTT:SetUnitDebuff( target, slot );
 	
 		debufftype = COETotemTTTextRight1:GetText();
@@ -1081,9 +1083,10 @@ function COE_Totem:HookUseAction( id, book )
 	if( COE_Config:GetSaved( COEOPT_ENABLETIMERS ) == 0 ) then
 		return;
 	end
-	
+
 	-- get action tooltip
 	-- -------------------
+	COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 	COETotemTT:SetAction( id );
 	
 	-- check if this triggered a totem
@@ -1121,7 +1124,7 @@ function COE_Totem:HookUseAction( id, book )
 						rank = COE.TotemData[i].MaxRank;
 					end
 				end 
-			
+
 				-- set pending totem
 				-- ------------------
 				COE_Totem:SetPendingTotem( COE.TotemData[i], rank );
@@ -1174,7 +1177,7 @@ function COE_Totem:HookCastSpell( id, book )
 	-- no totem spell. remove pending totem if set
 	-- --------------------------------------------
 	COE_Totem:SetPendingTotem( nil );
-	
+
 end
 
  

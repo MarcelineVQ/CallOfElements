@@ -119,6 +119,7 @@ function COE:ScanHealingSpells()
 
 			-- extract mana cost and amount of healing from the tooltip
 			-- ---------------------------------------------------------
+			COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 			COETotemTT:SetSpell( i, BOOKTYPE_SPELL );
 					
 			local text = COETotemTTTextLeft2:GetText();

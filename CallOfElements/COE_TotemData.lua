@@ -227,6 +227,7 @@ function COE:ScanTotems()
 				end
 			end
 
+			COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 			COETotemTT:SetSpell( i, BOOKTYPE_SPELL );
 
 			-- =======================================================================			
@@ -422,6 +423,7 @@ end
 function COE:GetTotemDurationAndHealth( spellid )
 
 	COETotemTTTextRight3:SetText( nil );
+	COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 	COETotemTT:SetSpell( spellid, BOOKTYPE_SPELL );
 	local text = COETotemTTTextLeft5:GetText();
 	
@@ -526,6 +528,7 @@ function COE:IsToolPresent( spellid )
 
 	-- get totem tooltip
 	-- ------------------
+	COETotemTT:SetOwner(UIParent, "ANCHOR_NONE");
 	COETotemTT:SetSpell( spellid, BOOKTYPE_SPELL );
 
 	-- test for presence of the totem tool
